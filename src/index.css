@@ -1,3 +1,15 @@
+:root {
+  --body_background: black;
+  --body_color: white;
+  --link_color: lightblue;
+}
+
+[data-theme="light"] {
+  --body_background: white;
+  --body_color: black;
+  --link_color: navy;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

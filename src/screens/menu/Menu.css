@@ -1,0 +1,49 @@
+.menu-body {
+    width: 12vw;
+    background-color: hsl(240, 4%, 10%);
+    color: white;
+    padding: 20px;
+}
+
+.menu-logo {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-menu {
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+}
+
+.menu-gradient-line {
+    margin-top: -10px;
+    height: 2px;
+    /* Độ dày của đường gạch */
+    background-image: linear-gradient(to right, #B5179E, #7209B7);
+    /* Gradient từ màu #B5179E sang #7209B7 */
+    margin-bottom: 10px;
+}
+
+.menu-detail {
+    height: 20px;
+    padding: 12px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.menu-detail:hover {
+    /* Thêm hiệu ứng linear-gradient khi hover */
+    background-image: linear-gradient(to right, #B5179E, #7209B7);
+    border-radius: 5px;
+}
+
+.menu-detail p {
+    margin-left: 13px;
+    font-size: 15px;
+}
