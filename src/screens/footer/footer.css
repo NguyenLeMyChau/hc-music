@@ -1,0 +1,110 @@
+.footer-body {
+    width: 100%;
+    height: auto;
+    background-color: #18181b;
+    color: white;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 10px;
+    padding-left: 50px;
+}
+
+.footer-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 4px 1px #B5179E, 0 0 0px 1px #7209B7;
+}
+
+.footer-name {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.footer-name p {
+    font-size: 13px;
+    margin-top: 0;
+    margin-bottom: 3px;
+    /* Giảm khoảng cách dưới để làm cho hai thẻ <p> gần nhau hơn */
+}
+
+.footer-name p:first-child {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.footer-detail {
+    padding: 15px;
+}
+
+.footer-gradient-circle {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-image: linear-gradient(to right, #B5179E, #7209B7);
+    padding-top: 3px;
+}
+
+.footer-music-progress-container {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    margin: 10px 0;
+}
+
+.time-label {
+    width: 40px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.footer-music-progress {
+    width: 100%;
+    height: 5px;
+    background-color: #737373;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: 'pointer';
+    position: 'relative';    
+}
+
+.progress-bar {
+    height: 100%;
+    position: 'absolute';
+    left: 0;
+    top: 0;
+}
+
+.footer-volume-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-volume-control input[type="range"] {
+    width: 100px;
+    height: 5px;
+}
+
+.volume-slider {
+    background-color: #737373; /* Default background color */
+    border-radius: 10px; 
+    height: 8px; 
+    outline: none; 
+    appearance: none;
+    background-image: linear-gradient(to right, #B5179E, #7209B7);
+}
+
+
+
+
