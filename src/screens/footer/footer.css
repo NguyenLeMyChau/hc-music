@@ -73,16 +73,23 @@
     height: 5px;
     background-color: #737373;
     border-radius: 5px;
-    overflow: hidden;
-    cursor: 'pointer';
-    position: 'relative';    
+    position: relative;
 }
 
 .progress-bar {
     height: 100%;
-    position: 'absolute';
     left: 0;
     top: 0;
+}
+
+.progress-button {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-top: -2px;
 }
 
 .footer-volume-control {
@@ -97,14 +104,20 @@
 }
 
 .volume-slider {
-    background-color: #737373; /* Default background color */
-    border-radius: 10px; 
-    height: 8px; 
-    outline: none; 
+    background-color: #737373;
+    /* Default background color */
+    border-radius: 10px;
+    height: 8px;
+    outline: none;
     appearance: none;
     background-image: linear-gradient(to right, #B5179E, #7209B7);
 }
 
-
-
-
+.footer-volume-control input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+}

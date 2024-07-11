@@ -9,23 +9,17 @@ import { TbPlayerPauseFilled } from "react-icons/tb";
 import { RiPlayLargeFill } from "react-icons/ri";
 import { FaVolumeHigh } from "react-icons/fa6";
 import { CiHeart } from "react-icons/ci";
+import { AiOutlineInteraction } from "react-icons/ai";
+import { IoIosAlbums } from "react-icons/io";
 
 function Footer() {
     const [isPlaying, setIsPlaying] = useState(true); //State play - stop nhạc
     const [progress, setProgress] = useState(0); // State cho thanh tiến trình nhạc
     const [currentTime, setCurrentTime] = useState(0); // State cho thời gian hiện tại của bài hát
     const [duration, setDuration] = useState(0); // State cho thời lượng của bài hát
-    const [volume, setVolume] = useState(1); // State cho âm lượng
+    const [volume, setVolume] = useState(0.5); // State cho âm lượng của bài hát
     const audioRef = useRef(null); // Ref cho phần tử audio
     const progressBarRef = useRef(null);
-
-    const handleProgressClick = (e) => {
-        const progressBar = progressBarRef.current;
-        const audio = audioRef.current;
-        const clickPosition = (e.clientX - progressBar.getBoundingClientRect().left) / progressBar.offsetWidth;
-        audio.currentTime = clickPosition * audio.duration;
-        setProgress((currentTime / duration) * 100);
-    };
 
     const togglePlay = () => {
         if (isPlaying) {
@@ -64,11 +58,40 @@ function Footer() {
         return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     };
 
+    const handleProgressClick = (e) => {
+        const progressBar = progressBarRef.current;
+        const audio = audioRef.current;
+        const clickPosition = (e.clientX - progressBar.getBoundingClientRect().left) / progressBar.offsetWidth;
+        audio.currentTime = clickPosition * audio.duration;
+        setProgress((currentTime / duration) * 100);
+    };
+
     const handleVolumeChange = (event) => {
         const newVolume = event.target.value;
         setVolume(newVolume);
         audioRef.current.volume = newVolume;
     };
+
+    const handleSkipForward = () => {
+        if (audioRef.current) {
+            let newTime = audioRef.current.currentTime + 10;
+            if (newTime > audioRef.current.duration) {
+                newTime = audioRef.current.duration; // Đảm bảo không vượt quá thời lượng
+            }
+            audioRef.current.currentTime = newTime;
+        }
+    };
+
+    const handleSkipBack = () => {
+        if (audioRef.current) {
+            let newTime = audioRef.current.currentTime - 10;
+            if (newTime > audioRef.current.duration) {
+                newTime = audioRef.current.duration; // Đảm bảo không vượt quá thời lượng
+            }
+            audioRef.current.currentTime = newTime;
+        }
+    };
+
 
     return (
         <div className='footer-body'>
@@ -80,11 +103,11 @@ function Footer() {
             </div>
 
             <FooterItem Icon={IoPlayBack} />
-            <FooterItem Icon={IoPlaySkipBack} />
+            <FooterItem Icon={IoPlaySkipBack} onClick={handleSkipBack}/>
             <div className="footer-gradient-circle" onClick={togglePlay}>
                 {isPlaying ? <FooterItem Icon={TbPlayerPauseFilled} /> : <FooterItem Icon={RiPlayLargeFill} />}
             </div>
-            <FooterItem Icon={IoPlaySkipForward} />
+            <FooterItem Icon={IoPlaySkipForward} onClick={handleSkipForward}/>
             <FooterItem Icon={IoPlayForward} />
 
             <div className="footer-music-progress-container" >
@@ -97,10 +120,19 @@ function Footer() {
                             background: `linear-gradient(to right, #B5179E, #7209B7)`
                         }}
                     ></div>
+
+                    {/* Thêm nút tại vị trí currentTime */}
+                    <div
+                        className="progress-button"
+                        style={{
+                            left: `${progress}%`
+                        }}
+                    ></div>
+
                 </div>
                 <span className="time-label">{formatTime(duration)}</span>
             </div>
-            <audio ref={audioRef} src={audio} />
+            <audio ref={audioRef} src={audio}/>
 
             <FooterItem Icon={FaVolumeHigh} />
             <div className="footer-volume-control">
@@ -115,12 +147,11 @@ function Footer() {
                 />
             </div>
 
-            <FooterItem Icon={CiHeart} />
-            <FooterItem Icon={CiHeart} />
+            <FooterItem Icon={IoIosAlbums} />
+            <FooterItem Icon={AiOutlineInteraction} />
             <FooterItem Icon={CiHeart} />
             <FooterItem Icon={IoShareSocialOutline} />
-
-        </div>
+        </div >
     );
 }
 
