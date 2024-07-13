@@ -1,5 +1,9 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--body_background);
+  color: var(--body_color);
 }
 
 .App-logo {
@@ -15,10 +19,11 @@
 
 .App-header {
   background-color: var(--body_background);
-  min-height: 100vh;
+  /* min-height: 100vh; */
   color: var(--body_color);
   display: flex;
   flex-direction: row;
+  flex: 1;
 }
 
 .App-link {
@@ -29,6 +34,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

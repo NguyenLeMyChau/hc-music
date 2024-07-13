@@ -5,12 +5,13 @@ import MenuItem from './MenuItem';
 import { CiUser, CiHeart, CiSettings } from "react-icons/ci";
 import { MdDashboard, MdOutlineSupportAgent } from "react-icons/md";
 import { BiAlbum } from "react-icons/bi";
+import logo from '../../images/logo.png';
 
 function Menu() {
     return (
         <div className='menu-body'>
             <div className='menu-logo'>
-                <h2>H&C Music</h2>
+                <img src={logo} alt="logo"/>
             </div>
 
             <div className='menu-menu'>

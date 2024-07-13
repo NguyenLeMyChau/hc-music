@@ -1,4 +1,5 @@
 import './App.css';
+import Footer from './screens/footer/footer';
 import Menu from './screens/menu/Menu';
 import SongLyrics from './screens/songLyrics/SongLyrics';
 
