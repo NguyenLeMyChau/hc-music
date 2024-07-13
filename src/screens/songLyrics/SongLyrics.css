@@ -63,23 +63,53 @@ html {
     /* Canh giữa các phần tử theo chiều ngang */
 }
 
-.image-column img {
+/* .image-column img {
     width: 250px;
     height: 250px;
     margin-bottom: 10px;
     border-radius: 10px;
     box-shadow: 5px 5px 30px #c76bc1;
     ;
+} */
+/* .image-column img {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+   
+    box-shadow: 5px 5px 30px #752f71;
+} */
+
+/* Thêm lớp spin */
+
+.image-column img.spin {
+    animation: spin 25s linear infinite;
 }
 
-/* .icons-container {
-    margin-top: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 40px;
-} */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+.image-column img {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 30px #c76bc1;
+    transition: transform 0.5s linear;
+}
+
+
+
+
 
 .icons-container {
     display: flex;
@@ -99,7 +129,8 @@ html {
     align-items: center;
     gap: 15px;
     flex-grow: 1;
-    cursor: pointer
+    cursor: pointer;
+    margin-left: 50px;
 }
 
 
@@ -123,6 +154,17 @@ html {
 .lyrics {
     color: #F4F4F4;
 }
+
+.music-lyrics-progress-container {
+    width: 60%;
+    margin: 40px auto 0px;
+    /* Sử dụng auto để căn giữa theo chiều ngang */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
 
 @media (max-width: 1200px) {
     .half-half-square {
@@ -154,4 +196,26 @@ html {
         height: 65vw;
         /* Chiều cao dựa trên viewport, điều chỉnh theo tỉ lệ phù hợp */
     }
+}
+
+
+.lyrics-container {
+    overflow-y: auto;
+    max-height: 30vh;
+    /* Adjust as needed */
+    padding: 10px;
+    line-height: 24px;
+    /* Adjust based on your design */
+}
+
+.lyrics-container::-webkit-scrollbar {
+    display: none;
+}
+
+.lyrics {
+    white-space: pre-line;
+    font-size: 24px;
+    line-height: 1.6;
+    margin-left: 20px;
+    /* Điều chỉnh giá trị này để có khoảng cách phù hợp */
 }
