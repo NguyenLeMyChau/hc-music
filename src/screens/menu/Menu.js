@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Menu.css';
 import MenuItem from './MenuItem';
-// import DarkMode from '../../theme/DarkMode';
 import { CiUser, CiHeart, CiSettings } from "react-icons/ci";
 import { MdDashboard, MdOutlineSupportAgent } from "react-icons/md";
 import { BiAlbum } from "react-icons/bi";
@@ -49,7 +48,6 @@ function Menu() {
                     </div>
                 </div>
             ))}
-
 
         </div>
     );

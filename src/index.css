@@ -2,12 +2,18 @@
   --body_background: black;
   --body_color: white;
   --link_color: lightblue;
+  --body_menu: #201f1f;
+  --body_menu_color_hover: #302e2e;
+  --body_user_icon: #C3C3C3;
 }
 
 [data-theme="light"] {
   --body_background: white;
   --body_color: black;
   --link_color: navy;
+  --body_menu: #dcd6d6;
+  --body_menu_color_hover: #c5c1c1;
+  --body_user_icon: #252424;
 }
 
 body {

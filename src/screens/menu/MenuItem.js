@@ -5,7 +5,7 @@ function MenuItem({ Icon, label, onClick, isSelected }) {
 	return (
         <div className={`menu-detail ${isSelected ? 'selected' : ''}`} onClick={onClick}>
 
-			<Icon size={23} color="white" />
+			<Icon size={23} />
 			<p>{label}</p>
 		</div>
 	);

@@ -1,0 +1,45 @@
+{
+    "TopMusic": [
+      {
+        "id": 1,
+        "name": "Nếu lúc đó",
+        "singer": "Tlinh",
+        "image": "../images/neulucdo.jfif",
+        "time": "4:24",
+        "audio": "../audios/NeuLucDo-tlinh2pillz-8783613.mp3"
+      },
+      {
+        "id": 2,
+        "name": "Bo Xì Bo",
+        "singer": "Hoàng Thuỳ Linh",
+        "image": "../images/boxibo.jpg",
+        "time": "2:52",
+        "audio": "../audios/BoXiBo-HoangThuyLinh-7702270.mp3"
+      },
+      {
+        "id": 3,
+        "name": "Gieo Quẻ",
+        "singer": "Hoàng Thuỳ Linh",
+        "image": "../images/gieoque.jpg",
+        "time": "3:18",
+        "audio": "../audios/GieoQue-HoangThuyLinhFeatDen-7702264.mp3"
+      },
+      {
+        "id": 4,
+        "name": "See Tình",
+        "singer": "Hoàng Thuỳ Linh",
+        "image": "../images/seetinh.jpg",
+        "time": "3:05",
+        "audio": "../audios/SeeTinh-HoangThuyLinh-7702265.mp3"
+      },
+      {
+        "id": 5,
+        "name": "Kẻ cắp gặp bà già",
+        "singer": "Hoàng Thuỳ Linh",
+        "image": "../images/kecapgapbagia.jpg",
+        "time": "3:51",
+        "audio": "../audios/DiamondCutDiamond-HoangThuyLinhBINZ-6153594.mp3"
+      }
+    ]
+  }
+  

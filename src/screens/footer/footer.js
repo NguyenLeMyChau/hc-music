@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './footer.css';
 import image from '../../images/neulucdo.jfif';
 import FooterItem from './FooterItem';
-import audio from '../../audios/NeuLucDo-tlinh2pillz-8783613.mp3'
-
+import NeuLucDo from '../../audios/NeuLucDo-tlinh2pillz-8783613.mp3';
 import { IoPlayBack, IoPlaySkipBack, IoPlayForward, IoPlaySkipForward } from "react-icons/io5";
 import { TbPlayerPauseFilled } from "react-icons/tb";
 import { RiPlayLargeFill } from "react-icons/ri";
@@ -37,6 +36,7 @@ function Footer() {
     };
 
     useEffect(() => {
+        console.log('.....currentMusic', currentMusic);
         if (currentMusic && audioRef.current) {
             audioRef.current.play();
             setIsPlaying(true);
@@ -111,7 +111,7 @@ function Footer() {
             <img src={currentMusic ? currentMusic.image : image} alt="imageFooter" className='footer-avatar' />
 
             <div className='footer-name'>
-                <p>{currentMusic ? currentMusic.name : 'Hahaha'}</p>
+                <p>{currentMusic ? currentMusic.name : 'H&C Music'}</p>
                 <p>{currentMusic ? currentMusic.singer : 'MyChow'}</p>
             </div>
 
@@ -145,7 +145,7 @@ function Footer() {
                 </div>
                 <span className="time-label">{formatTime(duration)}</span>
             </div>
-            <audio ref={audioRef} src={audio}/>
+            <audio ref={audioRef} src={currentMusic ? currentMusic.audio : NeuLucDo}/>
 
             <FooterItem Icon={FaVolumeHigh} />
             <div className="footer-volume-control">
@@ -160,10 +160,10 @@ function Footer() {
                 />
             </div>
 
-            <FooterItem Icon={IoIosAlbums} className='icon-special'/>
-            <FooterItem Icon={AiOutlineInteraction} className='icon-special'/>
+            <FooterItem Icon={IoIosAlbums} className='icon-special' tooltip="Thêm vào album"/>
+            <FooterItem Icon={AiOutlineInteraction} className='icon-special' tooltip="Phát lại"/>
             <FooterItem Icon={CiHeart} className='icon-special' tooltip="Lưu vào yêu thích"/>
-            <FooterItem Icon={TbMicrophone2} className='icon-special'/>
+            <FooterItem Icon={TbMicrophone2} className='icon-special' tooltip="Xem lời bài hát"/>
         </div >
     );
 }
