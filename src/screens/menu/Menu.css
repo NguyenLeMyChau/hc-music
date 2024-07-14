@@ -44,6 +44,11 @@
 
 .menu-detail:hover {
     /* Thêm hiệu ứng linear-gradient khi hover */
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #eb1acb, #930d7f);
+}
+
+.menu-detail.selected {
     background-image: linear-gradient(to right, #B5179E, #7209B7);
     border-radius: 5px;
 }

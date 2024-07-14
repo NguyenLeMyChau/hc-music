@@ -4,13 +4,14 @@ import image from '../../images/neulucdo.jfif';
 import FooterItem from './FooterItem';
 import audio from '../../audios/NeuLucDo-tlinh2pillz-8783613.mp3'
 
-import { IoPlayBack, IoPlaySkipBack, IoPlayForward, IoPlaySkipForward, IoShareSocialOutline } from "react-icons/io5";
+import { IoPlayBack, IoPlaySkipBack, IoPlayForward, IoPlaySkipForward } from "react-icons/io5";
 import { TbPlayerPauseFilled } from "react-icons/tb";
 import { RiPlayLargeFill } from "react-icons/ri";
 import { FaVolumeHigh } from "react-icons/fa6";
 import { CiHeart } from "react-icons/ci";
 import { AiOutlineInteraction } from "react-icons/ai";
 import { IoIosAlbums } from "react-icons/io";
+import { TbMicrophone2 } from "react-icons/tb";
 
 import { useMusic } from '../../components/music-context/MusicContext';
 
@@ -162,7 +163,7 @@ function Footer() {
             <FooterItem Icon={IoIosAlbums} className='icon-special'/>
             <FooterItem Icon={AiOutlineInteraction} className='icon-special'/>
             <FooterItem Icon={CiHeart} className='icon-special' tooltip="Lưu vào yêu thích"/>
-            <FooterItem Icon={IoShareSocialOutline} className='icon-special'/>
+            <FooterItem Icon={TbMicrophone2} className='icon-special'/>
         </div >
     );
 }

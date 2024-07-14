@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Menu.css';
 import MenuItem from './MenuItem';
 // import DarkMode from '../../theme/DarkMode';
@@ -8,33 +8,47 @@ import { BiAlbum } from "react-icons/bi";
 import logo from '../../images/logo.png';
 
 function Menu() {
+    const [selectedItem, setSelectedItem] = useState('Dashboard');
+
+
+    const menuItems = [
+        {
+            section: "Menu",
+            items: [
+                { Icon: CiUser, label: "Profile" },
+                { Icon: MdDashboard, label: "Dashboard" },
+                { Icon: CiHeart, label: "Favorite" },
+                { Icon: BiAlbum, label: "Album" }]
+        },
+        {
+            section: "Help",
+            items: [
+                { Icon: CiSettings, label: "Setting" },
+                { Icon: MdOutlineSupportAgent, label: "FAQs" }]
+        }
+    ];
+
+    const handleItemClick = (label) => {
+        setSelectedItem(label);
+    };
+
     return (
         <div className='menu-body'>
             <div className='menu-logo'>
-                <img src={logo} alt="logo"/>
+                <img src={logo} alt="logo" />
             </div>
 
-            <div className='menu-menu'>
-                <h3>Menu</h3>
-                <div className='menu-gradient-line'></div>
-
-                <div>
-                    <MenuItem Icon={CiUser} label="Profile" />
-                    <MenuItem Icon={MdDashboard} label="Dashboard" />
-                    <MenuItem Icon={CiHeart} label="Favorite" />
-                    <MenuItem Icon={BiAlbum} label="Album" />
+            {menuItems.map((menuSection) => (
+                <div className='menu-menu' key={menuSection.section}>
+                    <h3>{menuSection.section}</h3>
+                    <div className='menu-gradient-line'></div>
+                    <div>
+                        {menuSection.items.map(({ Icon, label }) => (
+                            <MenuItem key={label} Icon={Icon} label={label} onClick={() => handleItemClick(label)} isSelected={selectedItem === label} />
+                        ))}
+                    </div>
                 </div>
-            </div>
-
-            <div className='menu-menu'>
-                <h3>Help</h3>
-                <div className='menu-gradient-line'></div>
-
-                <div>
-                    <MenuItem Icon={CiSettings} label="Setting" />
-                    <MenuItem Icon={MdOutlineSupportAgent} label="FAQs" />
-                </div>
-            </div>
+            ))}
 
 
         </div>
