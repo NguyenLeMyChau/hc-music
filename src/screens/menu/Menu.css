@@ -1,7 +1,7 @@
 .menu-body {
     width: 13vw;
-    background-color: #18181b;
-    color: white;
+    background-color: var(--body_menu);
+    color: var(--body_color);
     padding: 20px;
 }
 

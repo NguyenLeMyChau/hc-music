@@ -4,7 +4,7 @@ import './header.css';
 function HeaderItem({Icon}) {
     return (
         <div>
-			<Icon size={25} color="#C3C3C3"/>
+			<Icon size={25} />
 		</div>
     );
 }

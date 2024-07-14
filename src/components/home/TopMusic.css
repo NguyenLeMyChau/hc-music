@@ -7,17 +7,18 @@
 .top-music-item {
     width: 100%;
     box-sizing: border-box;
-    background-color: #201f1f;
     margin-bottom: 20px;
     padding-left: 50px;
     display: flex;
     align-items: center;
     flex-direction: row;
     position: relative;
+    background-color: var(--body_menu);
+    color: var(--body_color);
 }
 
 .top-music-item:hover {
-    background-color: #302e2e;
+    background-color: var(--body_menu_color_hover);
     /* Thay đổi màu nền khi di chuột qua */
     cursor: pointer;
     /* Thay đổi con trỏ để chỉ ra có thể tương tác */
@@ -50,7 +51,7 @@
 }
 
 .top-music-item.selected {
-    background-color: #302e2e;
+    background-color: var(--body_menu_color_hover);
 }
 
 .top-music-item.selected h2,
