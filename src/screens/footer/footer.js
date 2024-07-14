@@ -12,6 +12,8 @@ import { CiHeart } from "react-icons/ci";
 import { AiOutlineInteraction } from "react-icons/ai";
 import { IoIosAlbums } from "react-icons/io";
 
+import { useMusic } from '../../components/music-context/MusicContext';
+
 function Footer() {
     const [isPlaying, setIsPlaying] = useState(true); //State play - stop nhạc
     const [progress, setProgress] = useState(0); // State cho thanh tiến trình nhạc
@@ -21,6 +23,9 @@ function Footer() {
     const audioRef = useRef(null); // Ref cho phần tử audio
     const progressBarRef = useRef(null);
 
+    const { currentMusic } = useMusic();
+
+
     const togglePlay = () => {
         if (isPlaying) {
             audioRef.current.pause();
@@ -29,6 +34,13 @@ function Footer() {
         }
         setIsPlaying(!isPlaying);
     };
+
+    useEffect(() => {
+        if (currentMusic && audioRef.current) {
+            audioRef.current.play();
+            setIsPlaying(true);
+        }
+    }, [currentMusic]);
 
     useEffect(() => {
         const audio = audioRef.current;
@@ -95,11 +107,11 @@ function Footer() {
 
     return (
         <div className='footer-body'>
-            <img src={image} alt="imageFooter" className='footer-avatar' />
+            <img src={currentMusic ? currentMusic.image : image} alt="imageFooter" className='footer-avatar' />
 
             <div className='footer-name'>
-                <p>Nếu lúc đó</p>
-                <p>Tlinh</p>
+                <p>{currentMusic ? currentMusic.name : 'Hahaha'}</p>
+                <p>{currentMusic ? currentMusic.singer : 'MyChow'}</p>
             </div>
 
             <FooterItem Icon={IoPlayBack} />
@@ -147,10 +159,10 @@ function Footer() {
                 />
             </div>
 
-            <FooterItem Icon={IoIosAlbums} />
-            <FooterItem Icon={AiOutlineInteraction} />
-            <FooterItem Icon={CiHeart} />
-            <FooterItem Icon={IoShareSocialOutline} />
+            <FooterItem Icon={IoIosAlbums} className='icon-special'/>
+            <FooterItem Icon={AiOutlineInteraction} className='icon-special'/>
+            <FooterItem Icon={CiHeart} className='icon-special' tooltip="Lưu vào yêu thích"/>
+            <FooterItem Icon={IoShareSocialOutline} className='icon-special'/>
         </div >
     );
 }

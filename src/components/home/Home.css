@@ -1,0 +1,30 @@
+.home-body {
+    padding: 10px;
+    padding-left: 30px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.home-detail {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.home-detail p {
+    font-size: 18px;
+    font-weight: 400;
+    padding: 15px;
+}
+
+
+/* .home-detail p {
+    background: linear-gradient(to right, #B5179E, #7209B7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+ */
+

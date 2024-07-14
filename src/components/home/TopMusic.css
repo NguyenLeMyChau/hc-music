@@ -1,0 +1,69 @@
+.top-music-list {
+    width: 95%;
+    margin-top: 20px;
+    padding-bottom: 50px;
+}
+
+.top-music-item {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #201f1f;
+    margin-bottom: 20px;
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+}
+
+.top-music-item:hover {
+    background-color: #302e2e;
+    /* Thay đổi màu nền khi di chuột qua */
+    cursor: pointer;
+    /* Thay đổi con trỏ để chỉ ra có thể tương tác */
+}
+
+
+.top-music-item img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 4px 2px #B5179E, 0 0 0px 1px #7209B7;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.top-music-item .name {
+    width: 300px;
+    padding: 10px;
+}
+
+.top-music-item .time {
+    width: 150px;
+    padding: 10px;
+}
+
+.top-music-item .icon-play {
+    position: absolute;
+    right: 35px;
+}
+
+.top-music-item.selected {
+    background-color: #302e2e;
+}
+
+.top-music-item.selected h2,
+.top-music-item.selected .name,
+.top-music-item.selected .time {
+    background: linear-gradient(to right, #B5179E, #7209B7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.top-music-item.selected p {
+    font-size: 17px;
+    font-weight: 600;
+}
