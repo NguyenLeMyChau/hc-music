@@ -5,6 +5,8 @@ import {
     IoPlaySkipBack,
     IoPlayForward,
     IoPlaySkipForward,
+    IoChevronBackSharp,
+    IoChevronForwardSharp,
     IoShareSocialOutline
 } from "react-icons/io5";
 import { TbPlayerPauseFilled } from "react-icons/tb";
@@ -13,7 +15,7 @@ import { FaVolumeHigh } from "react-icons/fa6";
 import { IoIosAlbums } from "react-icons/io";
 import { IoShuffle } from "react-icons/io5";
 import { AiOutlineRetweet } from 'react-icons/ai';
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 function SongLyrics() {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -26,6 +28,11 @@ function SongLyrics() {
     const imgRef = useRef(null);
     const imgRotationRef = useRef(0); // Ref để lưu góc quay hiện tại của ảnh
     const lyricsContainerRef = useRef(null);
+    const [isLiked, setIsLiked] = useState(false);
+
+    const toggleLike = () => {
+        setIsLiked(!isLiked);
+    };
 
     const handlePlayMusic = () => {
         if (audioRef.current) {
@@ -73,7 +80,7 @@ function SongLyrics() {
         if (lyricsContainer) {
             const lineHeight = 24; // Adjust based on your CSS line-height
             const scrollOffset = 50; // Offset for better centering
-            const lineIndex = Math.floor(currentTime / 7); // Example calculation, adjust as needed
+            const lineIndex = Math.floor(currentTime / 2); // Example calculation, adjust as needed
 
             lyricsContainer.scrollTo({
                 top: lineHeight * lineIndex - scrollOffset,
@@ -250,7 +257,7 @@ function SongLyrics() {
                     </div>
                 </div>
                 <div className="music-lyrics-progress-container">
-                    <span className="time-label">{formatTime(currentTime)}</span>
+                    <span className="time-label-music">{formatTime(currentTime)}</span>
                     <div className="footer-music-progress" ref={progressBarRef} onClick={handleProgressClick}>
                         <div
                             className="progress-bar"
@@ -266,7 +273,7 @@ function SongLyrics() {
                             }}
                         ></div>
                     </div>
-                    <span className="time-label">{formatTime(duration)}</span>
+                    <span className="time-label-music">{formatTime(duration)}</span>
                 </div>
                 <audio
                     ref={audioRef}
@@ -276,22 +283,51 @@ function SongLyrics() {
                 />
                 <div className="icons-container">
                     <IoIosAlbums size={20} color='#000000' />
-                    <FaRegHeart size={20} color='#000000' />
+                    <div>
+                        {isLiked ? (
+                            <FaRegHeart size={20} color='#FF0000' onClick={toggleLike} />
+                        ) : (
+                            <FaRegHeart size={20} color='#000000' onClick={toggleLike} />
+                        )}
+                    </div>
+                    {/* <FaRegHeart size={20} color='#000000' /> */}
                     <IoShareSocialOutline size={20} color='#000000' />
                     <div className="center-icons">
-                        <IoShuffle size={30} color='#000000' />
-                        <IoPlayBack size={30} color='#000000' />
-                        <IoPlaySkipBack size={30} color='#000000' />
-                        <div onClick={handlePlayMusic}>
-                            {isPlaying ? (
-                                <TbPlayerPauseFilled size={30} color='#000000' />
-                            ) : (
-                                <RiPlayLargeFill size={30} color='#000000' />
-                            )}
+                        <div >
+                            <IoShuffle size={25} color='#000000' />
+
                         </div>
-                        <IoPlaySkipForward size={30} color='#000000' />
-                        <IoPlayForward size={30} color='#000000' />
-                        <AiOutlineRetweet size={30} color='#000000' />
+                        <div className='outer-circle'>
+                            <div className="purple-circle-button">
+                                <FaAngleLeft size={25} color='#ffffff' />
+
+                            </div>
+                        </div>
+
+
+                        {/* <IoPlayBack size={25} color='#000000' /> */}
+                        <div className='outer-circle'>
+                            <div onClick={handlePlayMusic} className="purple-circle-button">
+                                {isPlaying ? (
+                                    <TbPlayerPauseFilled size={25} color='#ffffff' />
+                                ) : (
+                                    <RiPlayLargeFill size={25} color='#ffffff' />
+                                )}
+                            </div>
+                        </div>
+
+                        <div className='outer-circle'>
+                            <div className="purple-circle-button">
+                                <FaAngleRight size={25} color='#ffffff' />
+
+                            </div>
+                        </div>
+
+                        <div>
+                            <AiOutlineRetweet size={25} color='#000000' />
+
+                        </div>
+                        {/* <IoPlayForward size={25} color='#000000' /> */}
                     </div>
                     <FaVolumeHigh size={20} color='#000000' />
                     <div className="footer-volume-control">
