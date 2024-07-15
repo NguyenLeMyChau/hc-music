@@ -258,16 +258,17 @@ function SongLyrics() {
                 </div>
                 <div className="music-lyrics-progress-container">
                     <span className="time-label-music">{formatTime(currentTime)}</span>
-                    <div className="footer-music-progress" ref={progressBarRef} onClick={handleProgressClick}>
+                    <div className="song-music-progress" ref={progressBarRef} onClick={handleProgressClick}>
                         <div
                             className="progress-bar"
                             style={{
                                 width: `${progress}%`,
-                                background: `linear-gradient(to right, #B5179E, #7209B7)`
+                                background: `linear-gradient(to right, #5D24D6, #7E74ED)`,
+                                borderRadius: '8px'
                             }}
                         ></div>
                         <div
-                            className="progress-button"
+                            className="song-progress-button"
                             style={{
                                 left: `${progress}%`
                             }}
@@ -309,7 +310,7 @@ function SongLyrics() {
                         <div className='outer-circle'>
                             <div onClick={handlePlayMusic} className="purple-circle-button">
                                 {isPlaying ? (
-                                    <TbPlayerPauseFilled size={25} color='#ffffff' />
+                                    <TbPlayerPauseFilled size={25} />
                                 ) : (
                                     <RiPlayLargeFill size={25} color='#ffffff' />
                                 )}
@@ -332,7 +333,7 @@ function SongLyrics() {
                     <FaVolumeHigh size={20} color='#000000' />
                     <div className="footer-volume-control">
                         <input
-                            className="volume-slider"
+                            className="song-volume-slider"
                             type="range"
                             min="0"
                             max="1"
